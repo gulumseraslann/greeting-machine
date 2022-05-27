@@ -19,8 +19,8 @@ public class HelloControllerTest2 {
     @Autowired
     MockMvc mockMvc;
 
-    @MockBean
-    private GreetingService greetingService;
+    //@MockBean
+    //private GreetingService greetingService;
 
     @Test
     void greetTheWorld() throws Exception {

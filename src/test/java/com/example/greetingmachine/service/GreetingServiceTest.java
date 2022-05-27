@@ -17,13 +17,13 @@ class GreetingServiceTest {
     @Test
     void it_should_greet_person_with_name() {
         //given
-        String name = "Bora";
+        String name = "Annie";
 
         //when
         String greet = greetingService.greet(name);
 
         //then
-        assertThat(greet).isEqualTo("Hello, Bora");
+        assertThat(greet).isEqualTo("Hello, Annie.");
     }
 
     @Test
@@ -34,7 +34,7 @@ class GreetingServiceTest {
         String greet = greetingService.greet(StringUtils.EMPTY);
 
         //then
-        assertThat(greet).isEqualTo("Hello, World");
+        assertThat(greet).isEqualTo("Hello world.");
     }
 
     @Test
@@ -46,6 +46,42 @@ class GreetingServiceTest {
         String greet = greetingService.greet(name);
 
         //then
-        assertThat(greet).isEqualTo("Hello, Annie and Bart");
+        assertThat(greet).isEqualTo("Hello, Annie and Bart.");
+    }
+
+    @Test
+    void it_should_greet_name_with_shooting() {
+        //given
+        String name = "BART";
+
+        //when
+        String greet = greetingService.greet(name);
+
+        //then
+        assertThat(greet).isEqualTo("HELLO, BART!");
+    }
+
+    @Test
+    void it_should_greet_multiple_peoples() {
+        //given
+        String name = "Anne,Bart,Charles,Monique";
+
+        //when
+        String greet = greetingService.greet(name);
+
+        //then
+        assertThat(greet).isEqualTo("Hello, Anne, Bart, Charles, and Monique.");
+    }
+
+    @Test
+    void it_should_greet_shouting_and_not_shouting_peoples() {
+        //given
+        String name = "Anne,BART,Charles,MONIQUE";
+
+        //when
+        String greet = greetingService.greet(name);
+
+        //then
+        assertThat(greet).isEqualTo("Hello, Anne and Charles. AND HELLO, BART AND MONIQUE!");
     }
 }
