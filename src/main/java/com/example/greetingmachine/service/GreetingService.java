@@ -5,6 +5,8 @@ import org.springframework.util.ObjectUtils;
 public class GreetingService {
 
     public String greet(String name) {
-        ObjectUtils.isEmpty(name);
+        if (ObjectUtils.isEmpty(name)) {
+
+        }
     }
 }
