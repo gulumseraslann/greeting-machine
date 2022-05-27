@@ -7,9 +7,9 @@ import org.springframework.util.ObjectUtils;
 public class GreetingService {
 
     public String greet(String name) {
-        /*if (ObjectUtils.isEmpty(name)) {
-
-        }*/
-        return name;
+        if (ObjectUtils.isEmpty(name)) {
+            return "Hello, World";
+        }
+        return "Hello, " + name;
     }
 }
