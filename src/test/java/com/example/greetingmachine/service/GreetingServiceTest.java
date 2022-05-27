@@ -40,7 +40,7 @@ class GreetingServiceTest {
     @Test
     void it_should_greet_couple() {
         //given
-        String name = "Annie, Bart";
+        String name = "Annie,Bart";
 
         //when
         String greet = greetingService.greet(name);
@@ -64,24 +64,36 @@ class GreetingServiceTest {
     @Test
     void it_should_greet_multiple_peoples() {
         //given
-        String name = "Anne,Bart,Charles,Monique";
+        String name = "Annie,Bart,Charles,Monique";
 
         //when
         String greet = greetingService.greet(name);
 
         //then
-        assertThat(greet).isEqualTo("Hello, Anne, Bart, Charles, and Monique.");
+        assertThat(greet).isEqualTo("Hello, Annie, Bart, Charles, and Monique.");
+    }
+
+    @Test
+    void it_should_greet_shouting_and_not_shouting_people_with_couples() {
+        //given
+        String name = "Annie,BART,Charles,MONIQUE";
+
+        //when
+        String greet = greetingService.greet(name);
+
+        //then
+        assertThat(greet).isEqualTo("Hello, Annie and Charles. AND HELLO, BART AND MONIQUE!");
     }
 
     @Test
     void it_should_greet_shouting_and_not_shouting_peoples() {
         //given
-        String name = "Anne,BART,Charles,MONIQUE";
+        String name = "Annie,BART,Charles,MONIQUE,Bora,GULUMSER";
 
         //when
         String greet = greetingService.greet(name);
 
         //then
-        assertThat(greet).isEqualTo("Hello, Anne and Charles. AND HELLO, BART AND MONIQUE!");
+        assertThat(greet).isEqualTo("Hello, Annie, Charles, and Bora. AND HELLO, BART, MONIQUE, AND GULUMSER!");
     }
 }

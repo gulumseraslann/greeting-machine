@@ -2,7 +2,6 @@ package com.example.greetingmachine.controller;
 
 import com.example.greetingmachine.service.GreetingService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +20,12 @@ public class HelloController {
 
     @GetMapping
     public String greet() {
-        return  greetingService.greet(StringUtils.EMPTY);
+        return greetingService.greet(StringUtils.EMPTY);
     }
 
     @GetMapping("/{name}")
     public String greet(@PathVariable(name = "name", required = false) String name) {
-        return  greetingService.greet(name);
+        return greetingService.greet(name);
     }
 
 }
